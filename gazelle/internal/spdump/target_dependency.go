@@ -43,10 +43,12 @@ func (pr *ProductReference) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	fmt.Println(runtime.Caller(0))
-	stackSlice := make([]byte, 512)
+	for c := 0; c < 5; c++ {
+		fmt.Println(runtime.Caller(c))
+	}
+	stackSlice := make([]byte, 1024)
 	s := runtime.Stack(stackSlice, false)
-	fmt.Printf("\n%s", stackSlice[0:s])
+	fmt.Printf("\n%s\n", stackSlice[0:s])
 
 	fmt.Printf("[ProductReference] target_dependency.go/ProductReference.UnmarshalJSON\n")
 	fmt.Printf("[ProductReference] jsonutils.StringAtIndex(v, 0)\nv=%v\n\n", raw)
