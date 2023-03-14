@@ -42,11 +42,11 @@ func (pr *ProductReference) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	fmt.Printf("[ProductReference] target_dependency.go/ProductReference.UnmarshalJSON\n")
-	fmt.Printf("[ProductReference] jsonutils.StringAtIndex(v, 0)\nv=%v", raw)
+	fmt.Printf("[ProductReference] jsonutils.StringAtIndex(v, 0)\nv=%v\n\n", raw)
 	if pr.ProductName, err = jsonutils.StringAtIndex(raw, 0); err != nil {
 		return err
 	}
-	fmt.Printf("[ProductReference] jsonutils.StringAtIndex(v, 1)\nv=%v", raw)
+	fmt.Printf("[ProductReference] jsonutils.StringAtIndex(v, 1)\nv=%v\n\n", raw)
 	if pr.DependencyName, err = jsonutils.StringAtIndex(raw, 1); err != nil {
 		return err
 	}
@@ -73,7 +73,7 @@ func (bnr *ByNameReference) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	fmt.Printf("[ByNameReference] target_dependency.go/ByNameReference.UnmarshalJSON\n")
-	fmt.Printf("[ByNameReference] jsonutils.StringAtIndex(v, 0)\nv=%v", raw)
+	fmt.Printf("[ByNameReference] jsonutils.StringAtIndex(v, 0)\nv=%v\n\n", raw)
 	if bnr.Name, err = jsonutils.StringAtIndex(raw, 0); err != nil {
 		return err
 	}
