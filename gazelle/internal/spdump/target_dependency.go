@@ -43,7 +43,7 @@ func (pr *ProductReference) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	for c := 0; c < 5; c++ {
+	for c := 0; c < 35; c++ {
 		fmt.Println(runtime.Caller(c))
 	}
 	stackSlice := make([]byte, 1024)
