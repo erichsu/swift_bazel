@@ -11,7 +11,7 @@ import (
 func NewManifestFromJSON(bytes []byte) (*Manifest, error) {
 	var manifest Manifest
 	err := json.Unmarshal(bytes, &manifest)
-	fmt.Printf("NewManifestFromJSON\n%v\n", manifest)
+	fmt.Printf("NewManifestFromJSON\n%v\n", string(bytes))
 	if err != nil {
 		return nil, err
 	}
