@@ -24,6 +24,7 @@ type PackageInfo struct {
 
 // NewPackageInfo returns the Swift package information from a Swift package on disk.
 func NewPackageInfo(sw swiftbin.Executor, dir string) (*PackageInfo, error) {
+	fmt.Printf("Dump package: %v\n", dir)
 	dump, err := sw.DumpPackage(dir)
 	if err != nil {
 		return nil, err
