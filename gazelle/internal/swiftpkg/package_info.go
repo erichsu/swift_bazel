@@ -28,6 +28,7 @@ func NewPackageInfo(sw swiftbin.Executor, dir string) (*PackageInfo, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Printf("NewPackageInfo dump package\n%v\n", dump)
 	dumpManifest, err := spdump.NewManifestFromJSON(dump)
 	if err != nil {
 		return nil, err
