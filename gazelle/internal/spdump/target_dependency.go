@@ -3,6 +3,7 @@ package spdump
 import (
 	"encoding/json"
 	"fmt"
+	"runtime"
 
 	"github.com/cgrindel/swift_bazel/gazelle/internal/jsonutils"
 )
@@ -41,6 +42,12 @@ func (pr *ProductReference) UnmarshalJSON(b []byte) error {
 	if err = json.Unmarshal(b, &raw); err != nil {
 		return err
 	}
+
+	fmt.Println(runtime.Caller(0))
+	stackSlice := make([]byte, 512)
+	s := runtime.Stack(stackSlice, false)
+	fmt.Printf("\n%s", stackSlice[0:s])
+
 	fmt.Printf("[ProductReference] target_dependency.go/ProductReference.UnmarshalJSON\n")
 	fmt.Printf("[ProductReference] jsonutils.StringAtIndex(v, 0)\nv=%v\n\n", raw)
 	if pr.ProductName, err = jsonutils.StringAtIndex(raw, 0); err != nil {
