@@ -2,6 +2,7 @@ package spdump
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // The JSON formats described in this file are for the swift package dump-package JSON output.
@@ -10,6 +11,7 @@ import (
 func NewManifestFromJSON(bytes []byte) (*Manifest, error) {
 	var manifest Manifest
 	err := json.Unmarshal(bytes, &manifest)
+	fmt.Printf("NewManifestFromJSON\n%v\n", manifest)
 	if err != nil {
 		return nil, err
 	}
